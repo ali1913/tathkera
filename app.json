@@ -1,17 +1,18 @@
 {
   "expo": {
-    "name": "ghadha",
+    "name": "tathkera",
     "slug": "ghadha",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ghadha",
+    "scheme": "tathkera",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "permissions": ["WRITE_EXTERNAL_STORAGE", "READ_EXTERNAL_STORAGE"],
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -19,7 +20,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.temp2172.tathkera"
     },
     "web": {
       "output": "static",
@@ -38,11 +40,20 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "@react-native-community/datetimepicker"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "supportsRTL": true,
+      "router": {},
+      "eas": {
+        "projectId": "105d1304-773b-464b-8248-3dc8a634b373"
+      }
+    },
+    "owner": "temp2172"
   }
 }

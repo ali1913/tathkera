@@ -1,0 +1,25 @@
+name: Android Build
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t reactbldr .
+
+      - name: Run Build inside Container
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/app \
+            reactbldr \
+            sh -c "cd android && ./gradlew assembleRelease"
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: platforms/android/app/build/outputs/apk/debug/*.apk
